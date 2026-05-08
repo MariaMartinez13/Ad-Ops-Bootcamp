@@ -8,205 +8,170 @@
     <style>
         :root {
             --bg-light: #ffffff;
-            --accent: #6366f1; 
+            --accent: #4f46e5; /* Morado un poco más oscuro y vibrante */
             --accent-soft: #eef2ff;
             --text-main: #0f172a;
-            --text-muted: #64748b;
-            --border: #f1f5f9;
+            --text-muted: #475569;
+            --border: #e2e8f0;
         }
 
-        /* Efecto de Scroll Dinámico */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            transition: background 0.8s ease;
-            /* El gradiente que se activa al bajar */
-            background: linear-gradient(180deg, #ffffff 0%, #ffffff 40%, #f5f3ff 70%, #ede9fe 100%);
+            /* Gradiente más profundo hacia el final */
+            background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #f5f3ff 60%, #ddd6fe 100%);
             background-attachment: fixed;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        nav {
-            padding: 32px 0;
-            text-align: center;
-        }
+        nav { padding: 24px 0; text-align: center; }
+        .logo { font-weight: 800; font-size: 1rem; letter-spacing: 1px; color: var(--accent); }
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
-        header {
-            padding: 60px 0 100px;
-            text-align: center;
-        }
-
+        header { padding: 40px 0 60px; text-align: center; }
+        
         .badge {
             background-color: var(--accent-soft);
             color: var(--accent);
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 100px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             display: inline-block;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
         h1 {
-            font-size: clamp(2.8rem, 8vw, 4.5rem);
+            font-size: clamp(2.5rem, 7vw, 4rem);
             font-weight: 800;
             letter-spacing: -0.04em;
-            margin: 0 0 24px;
-            line-height: 1;
+            margin: 0 0 16px;
+            line-height: 1.1;
         }
 
-        /* Sección de Beneficios */
+        /* Sección de Beneficios Compacta */
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 100px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 60px;
         }
 
         .benefit-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 24px;
+            border-radius: 24px;
             border: 1px solid var(--border);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
+        .benefit-card h4 { font-size: 1.1rem; margin: 0 0 8px; color: var(--accent); }
+        .benefit-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
 
-        .benefit-card h4 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: var(--accent);
-        }
-
-        .benefit-card p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        /* Sección Engine */
+        /* Sección Engine - Resaltada */
         .engine-section {
             text-align: center;
-            margin-bottom: 100px;
+            margin-bottom: 60px;
         }
 
         .smooth-card {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 60px 40px;
-            border-radius: 40px;
-            border: 1px solid var(--border);
-            max-width: 800px;
+            background: var(--accent); /* Invertimos para resaltar */
+            color: white;
+            padding: 40px;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.3);
+            max-width: 750px;
             margin: 0 auto;
         }
 
-        .smooth-card p {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
+        .smooth-card h2 { font-size: 1.8rem; margin: 0 0 12px; font-weight: 800; letter-spacing: -0.02em; }
+        .smooth-card p { font-size: 1rem; opacity: 0.9; margin: 0; font-weight: 500; }
 
-        /* Formulario */
+        /* Formulario Compacto */
         .form-container {
-            max-width: 480px;
-            margin: 0 auto 120px;
+            max-width: 450px;
+            margin: 0 auto 80px;
         }
 
         .form-card {
             background: #ffffff;
-            padding: 48px;
-            border-radius: 36px;
+            padding: 32px;
+            border-radius: 28px;
             border: 1px solid var(--border);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
         }
 
-        .form-header h3 {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
+        .form-header { text-align: center; margin-bottom: 24px; }
+        .form-header h3 { font-size: 1.4rem; margin: 0 0 8px; letter-spacing: -0.5px; }
+        .form-header p { font-size: 0.9rem; color: var(--text-muted); }
 
-        label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            padding-left: 4px;
-        }
-
+        label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; padding-left: 4px; }
+        
         input, select {
             width: 100%;
-            padding: 16px;
-            margin-bottom: 24px;
-            border-radius: 16px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border-radius: 12px;
             border: 1px solid var(--border);
             background: #f8fafc;
             font-family: inherit;
             box-sizing: border-box;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            transition: all 0.2s;
         }
+
+        input:focus { border-color: var(--accent); outline: none; background: white; }
 
         .cta-primary {
             display: block;
             width: 100%;
             background-color: var(--accent);
             color: #fff;
-            padding: 20px;
+            padding: 16px;
             font-weight: 700;
-            border-radius: 16px;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 8px 16px -4px rgba(79, 70, 229, 0.4);
+            transition: all 0.3s;
         }
 
-        .cta-primary:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
-        }
+        .cta-primary:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
         footer {
-            padding-bottom: 60px;
+            padding-bottom: 40px;
             text-align: center;
-            font-size: 0.85rem;
-            color: #94a3b8;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .smooth-card { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">TAG HUB</div>
-    </nav>
+    <nav><div class="logo">TAG HUB</div></nav>
 
     <div class="container">
         <header>
             <span class="badge">Inicia tu carrera global</span>
             <h1>Go Global. <br>Master Ad Ops.</h1>
-            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 550px; margin: 0 auto;">
                 Domina la tecnología bilingüe que mueve las marcas mundiales y asegura tu futuro en la economía digital.
             </p>
         </header>
@@ -214,41 +179,38 @@
         <section class="benefits-grid">
             <div class="benefit-card">
                 <h4>Tech Mastery</h4>
-                <p>Aprenderás a utilizar plataformas especializadas en anuncios (Ad-Servers) como un experto.</p>
+                <p>Aprenderás a utilizar plataformas especializadas en anuncios como un experto.</p>
             </div>
             <div class="benefit-card">
                 <h4>Career Plus</h4>
-                <p>Esta especialización será el diferencial técnico que te pondrá por encima de cualquier generalista.</p>
+                <p>El diferencial técnico que te pondrá por encima de cualquier generalista.</p>
             </div>
             <div class="benefit-card">
                 <h4>Global Insight</h4>
-                <p>Conocerás de primera mano cómo operan las agencias globales con marcas de clase mundial.</p>
+                <p>Conoce cómo operan las agencias globales con marcas de clase mundial.</p>
             </div>
         </section>
 
         <section class="engine-section">
             <div class="smooth-card">
-                <p>
-                    "The engine behind the world's biggest brands."
-                </p>
-                <p style="font-size: 1.1rem; font-weight: 400; color: var(--text-muted); margin-top: 10px;">
-                    El perfil técnico más buscado por las multinacionales hoy.
-                </p>
+                <h2>"The engine behind the world's biggest brands."</h2>
+                <p>El perfil técnico más buscado por las multinacionales hoy.</p>
             </div>
         </section>
 
         <div id="register" class="form-container">
             <div class="form-card">
                 <div class="form-header">
-                    <h3 style="text-align:center;">Únete al Bootcamp</h3>
-                    <p style="text-align:center; color: var(--text-muted); margin-bottom: 32px;">
-                        Regístrate y recibe la <strong>primera clase gratis</strong>.
-                    </p>
+                    <h3>¿Te interesa un Bootcamp intensivo?</h3>
+                    <p>Inscríbete para recibir la <strong>primera clase gratis</strong> y una invitación especial a nuestra charla exclusiva de Ad Ops.</p>
                 </div>
                 
                 <form>
                     <label>Nombre completo</label>
                     <input type="text" placeholder="Ej. María Alejandra" required>
+                    
+                    <label>Correo electrónico personal</label>
+                    <input type="email" placeholder="tu@correo.com" required>
                     
                     <label>Nivel de Inglés</label>
                     <input type="text" placeholder="Ej. B2 - Intermedio" required>
@@ -260,12 +222,13 @@
                         <option value="virtual">Virtual (Online)</option>
                     </select>
 
-                    <button type="submit" class="cta-primary">Obtener mi clase gratis</button>
+                    <button type="submit" class="cta-primary">Obtener mi invitación + Clase gratis</button>
                 </form>
             </div>
         </div>
 
         <footer>
+            Built for the next generation of digital leaders. <br>
             &copy; 2026 TAG HUB | Cali, Colombia.
         </footer>
     </div>
