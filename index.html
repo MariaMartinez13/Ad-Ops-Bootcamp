@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAG Hub | Go Global</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-light: #ffffff;
             --bg-soft: #f8fafc;
             --white: #ffffff;
             --text-main: #0f172a;
-            --text-muted: #475569;
+            --text-muted: #64748b;
             --accent: #6366f1; 
             --accent-soft: #eef2ff;
             --border: #f1f5f9;
@@ -27,137 +27,98 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Navbar sencilla */
         nav {
             padding: 32px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
         }
 
         .logo {
             font-weight: 800;
-            font-size: 1.25rem;
-            letter-spacing: -1px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
             color: var(--text-main);
         }
 
-        /* Hero Section */
         header {
-            padding: 60px 0 100px;
+            padding: 40px 0 80px;
             text-align: center;
         }
 
         .badge {
             background-color: var(--accent-soft);
             color: var(--accent);
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 100px;
             font-size: 0.75rem;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.8rem, 8vw, 4.5rem);
             font-weight: 800;
             letter-spacing: -0.04em;
             margin: 0 0 24px;
             line-height: 1;
-            color: var(--text-main);
         }
 
         .intro-text {
-            font-size: 1.2rem;
-            max-width: 650px;
+            font-size: 1.15rem;
+            max-width: 600px;
             margin: 0 auto 40px;
             color: var(--text-muted);
-            font-weight: 400;
         }
 
-        .cta-primary {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 20px 40px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 14px;
-            font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.5);
-            filter: brightness(1.05);
-        }
-
-        /* Nueva Sección: The Engine */
+        /* Sección Engine - Estilo Smooth */
         .engine-section {
-            background-color: var(--bg-soft);
-            padding: 100px 40px;
-            border-radius: 40px;
             text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .engine-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-            display: block;
+            margin-bottom: 100px;
         }
 
         .engine-headline {
             font-size: clamp(1.8rem, 5vw, 2.8rem);
             font-weight: 800;
             letter-spacing: -0.03em;
-            max-width: 800px;
-            margin: 0 auto 32px;
-            line-height: 1.2;
+            margin-bottom: 40px;
         }
 
-        .engine-description {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 750px;
-            margin: 0 auto;
-        }
-
-        .highlight-card {
-            background: var(--white);
+        /* La tarjeta de impacto estilo Kinso */
+        .smooth-card {
+            background-color: var(--bg-soft);
+            padding: 60px 40px;
+            border-radius: 32px;
             border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: 24px;
-            margin-top: 48px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
 
-        .quote-text {
-            font-size: 1.25rem;
+        .smooth-card p {
+            font-size: 1.4rem;
             font-weight: 500;
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.4;
+            margin: 0;
+            letter-spacing: -0.02em;
         }
 
-        /* Formulario Estilo Kinso */
+        .smooth-card span {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Formulario Estilo Kinso App */
         .form-container {
-            max-width: 450px;
+            max-width: 480px;
             margin: 0 auto 100px;
-            text-align: center;
         }
 
         .form-card {
@@ -165,39 +126,90 @@
             padding: 40px;
             border-radius: 32px;
             border: 1px solid var(--border);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
         }
 
-        input {
+        .form-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .form-header h3 {
+            font-size: 1.5rem;
+            margin: 0 0 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .form-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            padding-left: 4px;
+        }
+
+        input, select {
             width: 100%;
             padding: 16px;
-            margin-bottom: 16px;
-            border-radius: 12px;
+            margin-bottom: 20px;
+            border-radius: 14px;
             border: 1px solid var(--border);
             background: var(--bg-soft);
             font-family: inherit;
             box-sizing: border-box;
             font-size: 1rem;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+            appearance: none; /* Quita el estilo default de select en algunos browsers */
         }
 
-        input:focus {
+        input:focus, select:focus {
             outline: none;
             border-color: var(--accent);
             background: var(--white);
             box-shadow: 0 0 0 4px var(--accent-soft);
         }
 
+        .cta-primary {
+            display: block;
+            width: 100%;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 16px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+            text-align: center;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+            box-shadow: 0 15px 30px -10px rgba(99, 102, 241, 0.5);
+        }
+
         footer {
             padding-bottom: 60px;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #94a3b8;
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 2.8rem; }
-            .engine-section { padding: 60px 20px; }
+            .smooth-card { padding: 40px 24px; }
+            .smooth-card p { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -209,36 +221,46 @@
 
     <div class="container">
         <header>
-            <span class="badge">Specialist Ecosystem</span>
+            <span class="badge">Ecosistema de Talento</span>
             <h1>Go Global. <br>Master Ad Ops.</h1>
             <p class="intro-text">
-                Domina la tecnología bilingüe que mueve las marcas mundiales y asegura tu lugar en la economía digital bilingüe.
+                Domina la tecnología bilingüe que mueve las marcas mundiales y asegura tu futuro en la economía digital.
             </p>
-            <a href="#register" class="cta-primary">Reserva tu masterclass gratis</a>
         </header>
 
         <section class="engine-section">
-            <span class="engine-title">¿Qué es Ad Ops?</span>
             <h2 class="engine-headline">The engine behind the world's biggest brands.</h2>
-            <p class="engine-description">
-                Si la creatividad es el corazón de un anuncio, Ad Ops es el sistema nervioso. Es el área técnica que hace que la magia suceda, asegurando que la pauta llegue al lugar correcto con data impecable.
-            </p>
             
-            <div class="highlight-card">
-                <p class="quote-text">
-                    "En un mundo saturado de generalistas, el especialista en Ad Ops es el perfil técnico que las multinacionales están contratando hoy con salarios globales."
+            <div class="smooth-card">
+                <p>
+                    Menos generalistas, más especialistas. <br>
+                    El experto en Ad Ops es el perfil técnico <span>más buscado</span> por las multinacionales hoy.
                 </p>
             </div>
         </section>
 
         <div id="register" class="form-container">
-            <h3 style="margin-bottom: 24px; font-size: 1.5rem; letter-spacing: -0.5px;">Únete a la próxima cohorte</h3>
             <div class="form-card">
+                <div class="form-header">
+                    <h3>Únete al Bootcamp</h3>
+                    <p>Inscríbete hoy y recibe la <strong>primera clase gratis</strong>.</p>
+                </div>
+                
                 <form>
-                    <input type="text" placeholder="Nombre completo" required>
-                    <input type="email" placeholder="Correo @universidad" required>
-                    <input type="text" placeholder="Nivel de Inglés (ej. B2)" required>
-                    <button type="submit" class="cta-primary" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Aplicar ahora</button>
+                    <label>Nombre completo</label>
+                    <input type="text" placeholder="Ej. María Alejandra" required>
+                    
+                    <label>Nivel de Inglés</label>
+                    <input type="text" placeholder="Ej. B2 - Intermedio" required>
+                    
+                    <label>Modalidad de preferencia</label>
+                    <select required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="presencial">Presencial (Cali, Colombia)</option>
+                        <option value="virtual">Virtual (Online)</option>
+                    </select>
+
+                    <button type="submit" class="cta-primary">Obtener mi clase gratis</button>
                 </form>
             </div>
         </div>
@@ -248,5 +270,7 @@
         </footer>
     </div>
 
+</body>
+</html>
 </body>
 </html>
