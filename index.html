@@ -4,162 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAG Hub | Go Global</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-light: #ffffff;
-            --accent: #4f46e5; /* Morado un poco más oscuro y vibrante */
+            --accent: #4f46e5; 
             --accent-soft: #eef2ff;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --border: #e2e8f0;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #f1f5f9;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            /* Gradiente más profundo hacia el final */
-            background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #f5f3ff 60%, #ddd6fe 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 40%, #f1f5f9 100%);
             background-attachment: fixed;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        nav { padding: 24px 0; text-align: center; }
-        .logo { font-weight: 800; font-size: 1rem; letter-spacing: 1px; color: var(--accent); }
+        nav { padding: 32px 0; text-align: center; }
+        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 1px; color: var(--accent); }
 
-        header { padding: 40px 0 60px; text-align: center; }
+        header { padding: 40px 0 80px; text-align: center; }
         
         .badge {
             background-color: var(--accent-soft);
             color: var(--accent);
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: 100px;
-            font-size: 0.7rem;
-            font-weight: 700;
+            font-size: 0.75rem;
+            font-weight: 600;
             display: inline-block;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 7vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin: 0 0 16px;
-            line-height: 1.1;
+            font-size: clamp(2.2rem, 8vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0 0 20px;
+            line-height: 1.2;
         }
 
-        /* Sección de Beneficios Compacta */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            margin-bottom: 60px;
-        }
-
-        .benefit-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(8px);
-            padding: 24px;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .benefit-card h4 { font-size: 1.1rem; margin: 0 0 8px; color: var(--accent); }
-        .benefit-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
-
-        /* Sección Engine - Resaltada */
-        .engine-section {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .smooth-card {
-            background: var(--accent); /* Invertimos para resaltar */
-            color: white;
+        .welcome-section {
+            background: white;
             padding: 40px;
             border-radius: 32px;
-            box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.3);
-            max-width: 750px;
-            margin: 0 auto;
+            margin-bottom: 60px;
+            border: 1px solid var(--border);
         }
 
-        .smooth-card h2 { font-size: 1.8rem; margin: 0 0 12px; font-weight: 800; letter-spacing: -0.02em; }
-        .smooth-card p { font-size: 1rem; opacity: 0.9; margin: 0; font-weight: 500; }
-
-        /* Formulario Compacto */
-        .form-container {
-            max-width: 450px;
-            margin: 0 auto 80px;
+        .welcome-section h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--accent); }
+        .welcome-section p { font-size: 1rem; color: var(--text-muted); margin-bottom: 15px; }
+        
+        .highlight-box {
+            background: var(--accent-soft);
+            padding: 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            color: var(--accent);
+            font-size: 0.95rem;
         }
+
+        .list-container { margin: 40px 0; }
+        .list-item { display: flex; align-items: center; gap: 15px; padding: 15px 0; border-bottom: 1px solid var(--border); }
+        .list-num { color: var(--accent); font-weight: 700; font-size: 0.9rem; }
+        .list-text { margin: 0; font-size: 0.95rem; font-weight: 400; }
 
         .form-card {
-            background: #ffffff;
-            padding: 32px;
-            border-radius: 28px;
+            background: white;
+            padding: 40px;
+            border-radius: 32px;
             border: 1px solid var(--border);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            margin-bottom: 80px;
         }
 
-        .form-header { text-align: center; margin-bottom: 24px; }
-        .form-header h3 { font-size: 1.4rem; margin: 0 0 8px; letter-spacing: -0.5px; }
-        .form-header p { font-size: 0.9rem; color: var(--text-muted); }
-
-        label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; padding-left: 4px; }
+        .form-header { text-align: center; margin-bottom: 30px; }
+        .form-header h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
         
         input, select {
             width: 100%;
-            padding: 12px 16px;
-            margin-bottom: 16px;
-            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 15px;
+            border-radius: 14px;
             border: 1px solid var(--border);
-            background: #f8fafc;
+            background: #fcfcfd;
             font-family: inherit;
             box-sizing: border-box;
-            font-size: 0.95rem;
-            transition: all 0.2s;
+            font-size: 0.9rem;
+            transition: 0.3s;
         }
 
-        input:focus { border-color: var(--accent); outline: none; background: white; }
+        input:focus, select:focus { outline: none; border-color: var(--accent); background: white; }
 
         .cta-primary {
             display: block;
             width: 100%;
             background-color: var(--accent);
             color: #fff;
-            padding: 16px;
-            font-weight: 700;
-            border-radius: 12px;
+            padding: 18px;
+            font-weight: 600;
+            border-radius: 14px;
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            box-shadow: 0 8px 16px -4px rgba(79, 70, 229, 0.4);
-            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+            transition: 0.3s;
         }
 
-        .cta-primary:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 25px rgba(79, 70, 229, 0.3); }
 
         footer {
-            padding-bottom: 40px;
+            padding: 40px 0;
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            font-weight: 500;
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            .smooth-card { padding: 30px 20px; }
+            .welcome-section, .form-card { padding: 30px 20px; }
+            .form-grid { grid-template-columns: 1fr !important; }
         }
     </style>
 </head>
@@ -169,128 +145,63 @@
 
     <div class="container">
         <header>
-            <span class="badge">Inicia tu carrera global</span>
+            <span class="badge">Próximo Bootcamp: Junio 2026</span>
             <h1>Go Global. <br>Master Ad Ops.</h1>
-            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 550px; margin: 0 auto;">
-                Domina la tecnología bilingüe que mueve las marcas mundiales y asegura tu futuro en la economía digital.
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                Domina la tecnología que mueve las marcas mundiales y asegura tu lugar en la economía digital.
             </p>
         </header>
 
-        <section class="benefits-grid">
-            <div class="benefit-card">
-                <h4>Tech Mastery</h4>
-                <p>Aprenderás a utilizar plataformas especializadas en anuncios como un experto.</p>
-            </div>
-            <div class="benefit-card">
-                <h4>Career Plus</h4>
-                <p>El diferencial técnico que te pondrá por encima de cualquier generalista.</p>
-            </div>
-            <div class="benefit-card">
-                <h4>Global Insight</h4>
-                <p>Conoce cómo operan las agencias globales con marcas de clase mundial.</p>
+        <section class="welcome-section">
+            <h2>Bienvenidos al mundo de Ad Ops 🌎</h2>
+            <p><strong>¿Qué es Ad Ops?</strong> Imagina que una marca global como Nike lanza una campaña. Ad Ops es el equipo técnico que se asegura de que esos anuncios aparezcan en el lugar exacto y que cada clic sea trackeado con precisión.</p>
+            <p>Eres el "ingeniero de pistas" de la publicidad digital. Configuras y optimizas la tecnología de anuncios para que la magia suceda.</p>
+            <div class="highlight-box">
+                ✨ Es uno de los roles más buscados hoy: las multinacionales necesitan expertos que entiendan la data.
             </div>
         </section>
 
-<section class="engine-section" style="padding: 40px 0;">
-    <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-        <h2 style="font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; letter-spacing: -1px;">
-            "The engine behind the world's biggest brands."
-        </h2>
-        <p style="font-size: 1.15rem; color: var(--text-muted); font-weight: 500; margin: 0;">
-            El perfil técnico más buscado por las multinacionales hoy.
-        </p>
-        <div style="width: 50px; height: 4px; background: var(--accent); margin: 30px auto 0; border-radius: 10px; opacity: 0.3;"></div>
-    </div>
-</section>
-<section style="padding: 40px 0; margin-top: 20px;">
-    <div style="max-width: 750px; margin: 0 auto;">
-        
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h3 style="font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px;">
-                Especialización intensiva en Ad Ops
+        <section>
+            <h3 style="font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 30px;">
+                "The engine behind the world's biggest brands."
             </h3>
-            <p style="color: var(--text-muted); font-size: 1rem;">Diseñado para quienes buscan el siguiente nivel técnico.</p>
-        </div>
+            
+            <div class="list-container">
+                <div class="list-item"><span class="list-num">01</span><p class="list-text">Domina tecnología de anuncios en plataformas globales.</p></div>
+                <div class="list-item"><span class="list-num">02</span><p class="list-text">Trabaja con agencias y marcas de clase mundial.</p></div>
+                <div class="list-item"><span class="list-num">03</span><p class="list-text">Expande tu conocimiento técnico especializado.</p></div>
+                <div class="list-item" style="border:none;"><span class="list-num">04</span><p class="list-text" style="font-weight:600;">Accede a salarios competitivos en dólares.</p></div>
+            </div>
+        </section>
 
-        <div style="display: grid; gap: 24px; margin-bottom: 50px;">
-            <div style="display: flex; align-items: center; gap: 20px; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">
-                <span style="color: var(--accent); font-weight: 800; font-size: 1.1rem;">01</span>
-                <p style="margin: 0; font-size: 1rem; font-weight: 500;">Domina tecnología de anuncios en plataformas globales.</p>
-            </div>
-            <div style="display: flex; align-items: center; gap: 20px; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">
-                <span style="color: var(--accent); font-weight: 800; font-size: 1.1rem;">02</span>
-                <p style="margin: 0; font-size: 1rem; font-weight: 500;">Trabaja con agencias y marcas de clase mundial.</p>
-            </div>
-            <div style="display: flex; align-items: center; gap: 20px; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">
-                <span style="color: var(--accent); font-weight: 800; font-size: 1.1rem;">03</span>
-                <p style="margin: 0; font-size: 1rem; font-weight: 500;">Expande tu conocimiento técnico especializado.</p>
-            </div>
-            <div style="display: flex; align-items: center; gap: 20px; padding: 10px 0;">
-                <span style="color: var(--accent); font-weight: 800; font-size: 1.1rem;">04</span>
-                <p style="margin: 0; font-size: 1rem; font-weight: 600;">Accede a salarios competitivos en dólares.</p>
-            </div>
-        </div>
-
-        <div id="register" style="background: white; padding: 40px; border-radius: 32px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h4 style="font-size: 1.4rem; font-weight: 800; margin: 0 0 8px;">Únete al Bootcamp</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Regístrate para la clase gratis y la invitación especial.</p>
+        <div id="register" class="form-card">
+            <div class="form-header">
+                <h3>Reserva tu Clase Gratis</h3>
+                <p>Aprende las bases de Ad Ops y descubre cómo aplicar a nuestro próximo <strong>Bootcamp</strong>.</p>
             </div>
             
-            <form id="taghub-form" style="max-width: 400px; margin: 0 auto;">
-                <input type="text" name="name" placeholder="Nombre completo" required 
-                       style="width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 12px; border: 1px solid var(--border); background: #fcfcfd; font-family: inherit;">
+            <form id="taghub-form">
+                <input type="text" name="name" placeholder="Nombre completo" required>
+                <input type="email" name="email" placeholder="Correo electrónico personal" required>
                 
-                <input type="email" name="email" placeholder="Correo electrónico personal" required 
-                       style="width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 12px; border: 1px solid var(--border); background: #fcfcfd; font-family: inherit;">
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
-                    <input type="text" name="english_level" placeholder="Nivel Inglés" required 
-                           style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: #fcfcfd; font-family: inherit;">
-                    
-                    <select name="modality" required 
-                            style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: #fcfcfd; font-family: inherit; color: var(--text-muted);">
+                <select name="occupation" required>
+                    <option value="" disabled selected>¿A qué te dedicas actualmente?</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="empleado">Empleado</option>
+                    <option value="independiente">Independiente / Freelance</option>
+                </select>
+
+                <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <input type="text" name="english" placeholder="Nivel Inglés (Ej. B2)" required>
+                    <select name="modality" required>
                         <option value="" disabled selected>Modalidad</option>
                         <option value="presencial">Presencial (Cali)</option>
                         <option value="virtual">Virtual</option>
                     </select>
                 </div>
 
-                <button type="submit" class="cta-primary" style="width: 100%; border: none; cursor: pointer; padding: 16px; border-radius: 12px; background: var(--accent); color: white; font-weight: 700; font-size: 1rem; box-shadow: 0 8px 15px rgba(79, 70, 229, 0.3);">
-                    Obtener clase gratis + Info Bootcamp
-                </button>
+                <button type="submit" class="cta-primary">Obtener mi invitación + Clase gratis</button>
             </form>
-        </div>
-    </div>
-</section>
-        <div id="register" class="form-container">
-            <div class="form-card">
-                <div class="form-header">
-                    <h3>¿Te interesa un Bootcamp intensivo?</h3>
-                    <p>Inscríbete para recibir la <strong>primera clase gratis</strong> y una invitación especial a nuestra charla exclusiva de Ad Ops.</p>
-                </div>
-                
- <form id="taghub-form">
-        <label>Nombre completo</label>
-        <input type="text" name="name" placeholder="Ej. María Alejandra" required>
-        
-        <label>Correo electrónico personal</label>
-        <input type="email" name="email" placeholder="tu@correo.com" required>
-        
-        <label>Nivel de Inglés</label>
-        <input type="text" name="english_level" placeholder="Ej. B2 - Intermedio" required>
-        
-        <label>Modalidad de preferencia</label>
-        <select name="modality" required>
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option value="presencial">Presencial (Cali, Colombia)</option>
-            <option value="virtual">Virtual (Online)</option>
-        </select>
-
-        <button type="submit" class="cta-primary">Obtener mi invitación + Clase gratis</button>
-    </form>
-</div>
-            </div>
         </div>
 
         <footer>
@@ -298,15 +209,12 @@
             &copy; 2026 TAG HUB | Cali, Colombia.
         </footer>
     </div>
+
 <script>
   const form = document.getElementById("taghub-form");
-  
   form.addEventListener("submit", async function(e) {
-    e.preventDefault(); // Evita que la página se recargue o se vaya a Formspree
-
+    e.preventDefault();
     const formData = new FormData(form);
-    
-    // Cambiamos el texto del botón para que el usuario sepa que está cargando
     const btn = form.querySelector('button');
     const originalText = btn.innerText;
     btn.innerText = "Enviando...";
@@ -316,16 +224,13 @@
       const response = await fetch("https://formspree.io/f/mnjwgjjy", {
         method: "POST",
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       });
 
       if (response.ok) {
-        // ¡ÉXITO! Aquí es donde ocurre la magia del redireccionamiento gratuito
         window.location.href = "gracias.html"; 
       } else {
-        alert("Hubo un error. Por favor intenta de nuevo.");
+        alert("Hubo un error. Intenta de nuevo.");
         btn.innerText = originalText;
         btn.disabled = false;
       }
