@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAG Hub | Go Global</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-light: #f9fafb;
+            --bg-light: #ffffff;
+            --bg-soft: #f8fafc;
             --white: #ffffff;
-            --text-main: #111827;
-            --text-muted: #6b7280;
-            --accent: #6366f1; /* Púrpura/Azul vibrante tipo Kinso */
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent: #6366f1; 
             --accent-soft: #eef2ff;
-            --border: #e5e7eb;
+            --border: #f1f5f9;
         }
 
         body {
@@ -25,193 +26,225 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        .navbar {
-            padding: 20px 0;
-            text-align: center;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--accent);
-            letter-spacing: -1px;
-        }
-
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
+        /* Navbar sencilla */
+        nav {
+            padding: 32px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -1px;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
         header {
-            padding: 80px 0 60px;
+            padding: 60px 0 100px;
             text-align: center;
         }
 
         .badge {
             background-color: var(--accent-soft);
             color: var(--accent);
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 700;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 800;
-            letter-spacing: -2px;
+            letter-spacing: -0.04em;
             margin: 0 0 24px;
-            line-height: 1.1;
+            line-height: 1;
             color: var(--text-main);
         }
 
         .intro-text {
-            font-size: 1.25rem;
-            max-width: 600px;
+            font-size: 1.2rem;
+            max-width: 650px;
             margin: 0 auto 40px;
             color: var(--text-muted);
+            font-weight: 400;
         }
 
         .cta-primary {
             display: inline-block;
             background-color: var(--accent);
             color: var(--white);
-            padding: 18px 36px;
+            padding: 20px 40px;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+            border-radius: 14px;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
         }
 
         .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
-            filter: brightness(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.5);
+            filter: brightness(1.05);
         }
 
-        /* Sección de Contenido tipo Card */
-        .card {
+        /* Nueva Sección: The Engine */
+        .engine-section {
+            background-color: var(--bg-soft);
+            padding: 100px 40px;
+            border-radius: 40px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .engine-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .engine-headline {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            max-width: 800px;
+            margin: 0 auto 32px;
+            line-height: 1.2;
+        }
+
+        .engine-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .highlight-card {
             background: var(--white);
-            padding: 50px;
-            border-radius: 24px;
             border: 1px solid var(--border);
-            margin: 60px 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            border-radius: 24px;
+            margin-top: 48px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .quote-box {
-            background-color: var(--bg-light);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 0;
-            font-style: italic;
-            color: var(--text-main);
+        .quote-text {
+            font-size: 1.25rem;
             font-weight: 500;
-            font-size: 1.1rem;
+            color: var(--text-main);
             line-height: 1.5;
-            position: relative;
         }
 
-        /* Formulario Estilo Limpio */
+        /* Formulario Estilo Kinso */
+        .form-container {
+            max-width: 450px;
+            margin: 0 auto 100px;
+            text-align: center;
+        }
+
         .form-card {
             background: var(--white);
             padding: 40px;
-            border-radius: 24px;
-            border: 2px solid var(--accent);
-            max-width: 500px;
-            margin: 40px auto;
-        }
-
-        label {
-            display: block;
-            text-align: left;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-main);
+            border-radius: 32px;
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
         }
 
         input {
             width: 100%;
-            padding: 14px;
-            margin-bottom: 20px;
-            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-radius: 12px;
             border: 1px solid var(--border);
-            background: var(--bg-light);
+            background: var(--bg-soft);
             font-family: inherit;
             box-sizing: border-box;
             font-size: 1rem;
+            transition: all 0.2s;
         }
 
         input:focus {
             outline: none;
             border-color: var(--accent);
             background: var(--white);
+            box-shadow: 0 0 0 4px var(--accent-soft);
         }
 
         footer {
-            padding: 60px 0;
+            padding-bottom: 60px;
             text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            font-size: 0.85rem;
+            color: #94a3b8;
         }
 
         @media (max-width: 600px) {
-            .card { padding: 30px 20px; }
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2.8rem; }
+            .engine-section { padding: 60px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="navbar">TAG Hub</div>
+    <nav>
+        <div class="logo">TAG HUB</div>
+    </nav>
 
     <div class="container">
         <header>
-            <span class="badge">Ecosistema de Élite bilingüe</span>
+            <span class="badge">Specialist Ecosystem</span>
             <h1>Go Global. <br>Master Ad Ops.</h1>
             <p class="intro-text">
-                Si la creatividad es el corazón de un anuncio, Ad Ops es el sistema nervioso. Domina la tecnología que mueve las marcas mundiales.
+                Domina la tecnología bilingüe que mueve las marcas mundiales y asegura tu lugar en la economía digital bilingüe.
             </p>
-            <a href="#register" class="cta-primary">Reserva tu clase gratis</a>
+            <a href="#register" class="cta-primary">Reserva tu masterclass gratis</a>
         </header>
 
-        <div class="card">
-            <h2>¿Qué es Ad Ops?</h2>
-            <p>Es el área técnica encargada de que la publicidad digital realmente funcione, se vea en el lugar correcto y genere los datos que las marcas necesitan.</p>
-            <p><strong>En términos simples: Tú eres quien hace que la magia suceda.</strong></p>
+        <section class="engine-section">
+            <span class="engine-title">¿Qué es Ad Ops?</span>
+            <h2 class="engine-headline">The engine behind the world's biggest brands.</h2>
+            <p class="engine-description">
+                Si la creatividad es el corazón de un anuncio, Ad Ops es el sistema nervioso. Es el área técnica que hace que la magia suceda, asegurando que la pauta llegue al lugar correcto con data impecable.
+            </p>
             
-            <div class="quote-box">
-                "En un mundo saturado de generalistas, el Ad Ops Specialist es el profesional técnico que las multinacionales bilingües están contratando hoy mismo con salarios competitivos."
+            <div class="highlight-card">
+                <p class="quote-text">
+                    "En un mundo saturado de generalistas, el especialista en Ad Ops es el perfil técnico que las multinacionales están contratando hoy con salarios globales."
+                </p>
+            </div>
+        </section>
+
+        <div id="register" class="form-container">
+            <h3 style="margin-bottom: 24px; font-size: 1.5rem; letter-spacing: -0.5px;">Únete a la próxima cohorte</h3>
+            <div class="form-card">
+                <form>
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo @universidad" required>
+                    <input type="text" placeholder="Nivel de Inglés (ej. B2)" required>
+                    <button type="submit" class="cta-primary" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Aplicar ahora</button>
+                </form>
             </div>
         </div>
 
-        <div id="register" class="form-card">
-            <h3 style="margin-top:0; text-align: center;">Únete a la Masterclass</h3>
-            <form>
-                <label>Nombre completo</label>
-                <input type="text" placeholder="Ej. María Alejandra" required>
-                
-                <label>Correo @universidad</label>
-                <input type="email" placeholder="tu@universidad.edu.co" required>
-                
-                <label>Nivel de Inglés</label>
-                <input type="text" placeholder="Ej. B2 - Intermedio Alto" required>
-                
-                <button type="submit" class="cta-primary" style="width: 100%; border: none; cursor: pointer;">QUIERO MI ACCESO</button>
-            </form>
-        </div>
-
         <footer>
-            &copy; 2026 TAG Hub | Hecho en Cali para el mundo.
+            &copy; 2026 TAG HUB | Built for the next generation of digital leaders.
         </footer>
     </div>
 
