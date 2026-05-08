@@ -205,25 +205,28 @@
                     <p>Inscríbete para recibir la <strong>primera clase gratis</strong> y una invitación especial a nuestra charla exclusiva de Ad Ops.</p>
                 </div>
                 
-                <form>
-                    <label>Nombre completo</label>
-                    <input type="text" placeholder="Ej. María Alejandra" required>
-                    
-                    <label>Correo electrónico personal</label>
-                    <input type="email" placeholder="tu@correo.com" required>
-                    
-                    <label>Nivel de Inglés</label>
-                    <input type="text" placeholder="Ej. B2 - Intermedio" required>
-                    
-                    <label>Modalidad de preferencia</label>
-                    <select required>
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <option value="presencial">Presencial (Cali, Colombia)</option>
-                        <option value="virtual">Virtual (Online)</option>
-                    </select>
+                <form action="https://formspree.io/f/mnjwgjjy" method="POST">
+    <!-- Campo oculto para que no se abra la página de agradecimiento externa de Formspree -->
+    <input type="hidden" name="_subject" value="Nueva inscripción: Bootcamp TAG Hub">
 
-                    <button type="submit" class="cta-primary">Obtener mi invitación + Clase gratis</button>
-                </form>
+    <label>Nombre completo</label>
+    <input type="text" name="name" placeholder="Ej. María Alejandra" required>
+    
+    <label>Correo electrónico personal</label>
+    <input type="email" name="email" placeholder="tu@correo.com" required>
+    
+    <label>Nivel de Inglés</label>
+    <input type="text" name="english_level" placeholder="Ej. B2 - Intermedio" required>
+    
+    <label>Modalidad de preferencia</label>
+    <select name="modality" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="presencial">Presencial (Cali, Colombia)</option>
+        <option value="virtual">Virtual (Online)</option>
+    </select>
+
+    <button type="submit" class="cta-primary">Obtener mi invitación + Clase gratis</button>
+</form>
             </div>
         </div>
 
